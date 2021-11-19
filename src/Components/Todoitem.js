@@ -3,7 +3,7 @@ import React from "react";
 // import { App } from "app.js";
 
 export const Todoitem = ({ todo, onDelete }) => {
-  console.log(todo);
+  // console.log(todo);
   return (
     <div>
       {todo && (

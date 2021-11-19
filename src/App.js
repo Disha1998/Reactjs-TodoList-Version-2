@@ -5,6 +5,8 @@ import Header from "./Components/Header";
 import { Todos } from "./Components/Todos";
 import { Todoitem } from "./Components/Todoitem";
 import { Addtodo } from "./Components/Addtodo";
+// import moment from "moment";
+// import {TodoContainer} from './Components/Todolistcontainer'
 
 
 import { Footer } from "./Components/Footer";
@@ -19,7 +21,7 @@ function App() {
    initTodo = [];
   }else{
     initTodo = JSON.parse(localStorage.getItem("todos"));
-    console.log(initTodo);
+    // console.log(initTodo);
   }
 
   const onDelete = (todo) => {
@@ -40,14 +42,14 @@ function App() {
       localStorage.setItem("todos", JSON.stringify(todos));
   };
   const addTodo=(title, desc)=>{
-    console.log("I am adding this todo", title, desc);
+    // console.log("I am adding this todo", title, desc);
     let sno;
     if(todos.length===0){
       sno = 1;
     }
     else{
    sno = todos[todos.length-1].sno + 1;
-   console.log(sno);
+  //  console.log(sno);
 
     }
     const myTodo={
@@ -56,7 +58,7 @@ function App() {
       desc : desc,
     }
     settodos([...todos,myTodo]);
-    console.log(myTodo);
+    // console.log(myTodo);
 
 
     if(localStorage.getItem("todos")){
@@ -72,6 +74,7 @@ function App() {
       <Addtodo addTodo={addTodo}/>
       <Todos todos={todos} onDelete={onDelete} />
       <Todoitem />
+      {/* <TodoContainer /> */}
       
     
       <Footer />
