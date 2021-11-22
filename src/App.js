@@ -1,12 +1,9 @@
-// import logo from './logo.svg';
+
 import "./App.css";
-// import Header from "Header.js";
 import Header from "./Components/Header";
 import { Todos } from "./Components/Todos";
 import { Todoitem } from "./Components/Todoitem";
 import { Addtodo } from "./Components/Addtodo";
-// import moment from "moment";
-// import {TodoContainer} from './Components/Todolistcontainer'
 
 
 import { Footer } from "./Components/Footer";
@@ -41,7 +38,7 @@ function App() {
       }));
       localStorage.setItem("todos", JSON.stringify(todos));
   };
-  const addTodo=(title, desc)=>{
+  const addTodo=(title,StartDate,endDate,Differ)=>{
     // console.log("I am adding this todo", title, desc);
     let sno;
     if(todos.length===0){
@@ -55,10 +52,14 @@ function App() {
     const myTodo={
       sno:sno,
       title:title,
-      desc : desc,
+      StartDate:StartDate,
+      endDate:endDate,
+      Differ:Differ
+      
+      
     }
     settodos([...todos,myTodo]);
-    // console.log(myTodo);
+    console.log(myTodo);
 
 
     if(localStorage.getItem("todos")){
@@ -67,6 +68,7 @@ function App() {
   }
 
   const [todos, settodos] = useState([]);
+  console.log(todos,"todos map");
 
   return (
     <>
